@@ -62,7 +62,7 @@ class HomePageState extends State<HomePage> {
       body: Column(
         children: <Widget>[
           Expanded(
-            flex: 3,
+            flex: 2,
             child: Container(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -185,6 +185,9 @@ class HomePageState extends State<HomePage> {
     String finalQuestion = userQuestion;
     finalQuestion = finalQuestion.replaceAll('x', '*');
     finalQuestion = finalQuestion.replaceAll('%', '*0.01');
+    finalQuestion = finalQuestion.replaceAll('+''-', '-');
+    finalQuestion = finalQuestion.replaceAll('-''+', '-');
+    finalQuestion = finalQuestion.replaceAll('-''-', '+');
 
     Parser p =Parser();
     Expression exp = p.parse(finalQuestion);
